@@ -2,7 +2,7 @@
 <p>The Azure IoT Edge Node-Red Module is a module that can be deployed to Azure IoT Edge for prototyping and testing purposes. The Module is provided as is without any garantee. The module can be found on Docker Hub [https://hub.docker.com/r/gbbiotwesouth/noderededgemodule/].</p>
 
 ## How to deploy the module
-<p>To use it deploy an IoT Edge on Linux [] or Raspberry Pi [], and then deploy the respective module (AMD64 or ARM32V7):
+<p>To use it deploy an IoT Edge on Linux [https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux] or Raspberry Pi [https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux-arm], and then deploy the respective module (AMD64 or ARM32V7):
 
 <ol>
 <li>In the Azure portal, navigate to your IoT hub.</li>
@@ -39,8 +39,9 @@
 </li>
 </ol>
 
-You need to deploy the node-red module using the following Container Create Options:
-
-
 Once the module is running you can access node-red through the browser on the same network as the edge device using:
-http://<edge-device-ip>:1880
+http://edge-device-ip:1880
+
+If you want to simulate a device sending data on the IoT Edge you can deploy the tempSensor module. For more information on how to do this please check out: https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux-arm
+
+
