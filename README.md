@@ -9,8 +9,8 @@
 <li>Go to <strong>IoT Edge</strong> and select your IoT Edge device.</li>
 <li>Select <strong>Set Modules</strong>.</li>
 <li>In the <strong>Deployment Modules</strong> section of the page, click <strong>Add</strong> then select <strong>IoT Edge Module</strong>.</li>
-<li>In the <strong>Name</strong> field, enter <code>tempSensor</code>. </li>
-<li>In the <strong>Image URI</strong> field, enter <code>mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0</code>. </li>
+<li>In the <strong>Name</strong> field, enter <code>nodered</code>. </li>
+<li>In the <strong>Image URI</strong> field, enter <code>gbbiotwesouth/noderededgemodule:0.4.0-amd64</code> or <code>gbbiotwesouth/noderededgemodule:0.4.0-arm32v7</code>. </li>
 <li><p>Set the Container Create Options and select <strong>Save</strong>.</p>
     <pre><code class="lang-json">{
   "HostConfig": {
