@@ -63,7 +63,7 @@ The Node-Red module contains a number of custom nodes placed in the group "Azure
 
 ## How to use the module
 <ol>
-<li>Access the Node-Red module using a browser on the same network as the IoT Edge device:http://&#x3C;edge-device-ip&#x3E;:1880</li>
+<li>Access the Node-Red module using a browser on the same network as the IoT Edge device: <br/>http://&#x3C;edge-device-ip&#x3E;:1880</li>
 <li>Open one of the examples as a starter: <code>Import > Examples > azure iot-edge > full-example</code></li>
 <li>Deploy the example and see the output either in the debug window of Node-Red or using device explorer on windows for the output messages send to IoT Hub</li>
 <li>If you want to deploy more output, input or method nodes you can drag these onto the Node-Red design service and conect them to the Module Client using the existing one as the configuration node in the node settings.</li>
