@@ -39,11 +39,11 @@
 </li>
 </ol>
 
-Once the module is running you can access node-red through the browser on the same network as the edge device using the ip address or network name and port number 1880: http://&#x3C;edge-device-ip&#x3E;:1880
+Once the module is running you can access Node-Red through the browser on the same network as the edge device using the ip address or network name and port number 1880: http://&#x3C;edge-device-ip&#x3E;:1880
 
 If you want to simulate a device sending data on the IoT Edge you can deploy the tempSensor module. For more information on how to do this please check out: https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux-arm.
 
-An example of a route that can be used to validate sending input to the node-red module:
+An example of a route that can be used to validate sending input to the Node-Red module:
 <pre><code>{
   "routes": {
     "routeToHub": "FROM /messages/modules/nodered/outputs/* INTO $upstream",
@@ -54,14 +54,17 @@ An example of a route that can be used to validate sending input to the node-red
 
 
 ## Module nodes
+The Node-Red module contains a number of custom nodes placed in the group "Azure IoT Edge". These node are "Module Twin", "Module Input", "Module Output", and "Module Method". These node represent the interaction that can be done with an Azure IoT Edge Module:
+<ol>
+<li>Module Twin:
+<ol><li></li></ol>
+</li>
+</ol>
 
 ## How to use the module
 <ol>
-<li>Access the node-red module using a browser on the same network as the IoT Edge device:http://&#x3C;edge-device-ip&#x3E;:1880</li>
+<li>Access the Node-Red module using a browser on the same network as the IoT Edge device:http://&#x3C;edge-device-ip&#x3E;:1880</li>
 <li>Open one of the examples as a starter: <code>Import > Examples > azure iot-edge > full-example</code></li>
-<li>Deploy the example and see the output either in the debug window of node-red or using device explorer on windows for the output messages send to IoT Hub</li>
-<li>If you want to deploy more output, input or method nodes you can drag these onto the node-red design service and conect them to the Module Client using the existing one as the configuration node in the node settings.
-    </li>
+<li>Deploy the example and see the output either in the debug window of Node-Red or using device explorer on windows for the output messages send to IoT Hub</li>
+<li>If you want to deploy more output, input or method nodes you can drag these onto the Node-Red design service and conect them to the Module Client using the existing one as the configuration node in the node settings.</li>
 </ol>
-
-
