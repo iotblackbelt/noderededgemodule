@@ -46,8 +46,8 @@ If you want to simulate a device sending data on the IoT Edge you can deploy the
 An example of a route that can be used to validate sending input to the Node-Red module:
 <pre><code>{
   "routes": {
-    "routeToHub": "FROM /messages/modules/nodered/outputs/* INTO $upstream",
-    "tempToRed": "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/nodered/inputs/input1\")"
+    "routeToHub": "FROM /messages/modules/{noderedmodule}/outputs/* INTO $upstream",
+    "tempToRed": "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/{noderedmodule}/inputs/input1\")"
   }
 }
 </code></pre>
@@ -57,14 +57,23 @@ An example of a route that can be used to validate sending input to the Node-Red
 The Node-Red module contains a number of custom nodes placed in the group "Azure IoT Edge". These node are "Module Twin", "Module Input", "Module Output", and "Module Method". These node represent the interaction that can be done with an Azure IoT Edge Module:
 <ol>
 <li>Module Twin:
-<ol><li></li></ol>
+<ol><li>The Module Twin enables you to interact with the module twin on IoT Hub. The node output will provide the twin desired property changes and the node input will enable you to send reported propeties back to the IoT Hub.</li></ol>
+</li>
+<li>Module Input:
+<ol><li>The Module Input enables you to receive input from other modules on your IoT Edge device. To receive input you have to setup the route to point at the input you specified when you created the node. The node output will provide you with the incoming telemetry message.</li></ol>
+</li>
+<li>Module Output:
+<ol><li>The Module Output enables you to send output to the edgeHub. To send output to another module or to the IoT Hub you have to setup the route to use the output when you created the node. The node input will enable you to send the telemetry message.</li></ol>
+</li>
+<li>Module Method:
+<ol><li>The Module Method enables you receive module direct methods. The setup of the module defines which method the node is responding to and what the response is for the method call. Currently the response is fixed in the node setup.</li></ol>
 </li>
 </ol>
 
 ## How to use the module
 <ol>
 <li>Access the Node-Red module using a browser on the same network as the IoT Edge device: <br/>http://&#x3C;edge-device-ip&#x3E;:1880</li>
-<li>Open one of the examples as a starter: <code>Import > Examples > azure iot-edge > full-example</code></li>
+<li>Open one of the examples as a starter. For instance the full example, containing all custom nodes: <code>Import > Examples > azure iot-edge > full-example</code></li>
 <li>Deploy the example and see the output either in the debug window of Node-Red or using device explorer on windows for the output messages send to IoT Hub</li>
 <li>If you want to deploy more output, input or method nodes you can drag these onto the Node-Red design service and conect them to the Module Client using the existing one as the configuration node in the node settings.</li>
 </ol>
