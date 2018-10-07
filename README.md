@@ -62,7 +62,9 @@ The Node-Red module contains a number of custom nodes placed in the group "Azure
 <ol>
 <li>Module Twin:
 <ol><li>The Module Twin enables you to interact with the module twin on IoT Hub. The node output will provide the twin desired property changes and the node input will enable you to send reported propeties back to the IoT Hub.<br/>
-Setting for the Module Twin: <img align="left" src="images/edit-module-twin.PNG"/></li></ol>
+Setting for the Module Twin: 
+<p><img align="left" src="images/edit-module-twin.PNG"/></p>
+</li></ol>
 </li>
 <li>Module Input:
 <ol><li>The Module Input enables you to receive input from other modules on your IoT Edge device. To receive input you have to setup the route to point at the input you specified when you created the node. The node output will provide you with the incoming telemetry message.</li></ol>
