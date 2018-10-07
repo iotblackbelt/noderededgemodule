@@ -95,14 +95,14 @@ The Module Methos needs a connection to a Module Client and the name of the "met
 
 ## Examples
 The module comes with a number a examples with Node-Red:
-<div><code>Import > Examples > azure iot-edge > full-example</code>
+<div><code>Import > Examples > azure iot-edge > full-example</code><br/>
 <img style="align:left;float:none" src="images/full-example.PNG"/></div>
-<div><code>Import > Examples > azure iot-edge > twin-example</code>
+<div><code>Import > Examples > azure iot-edge > twin-example</code><br/>
 <img style="align:left;float:none" src="images/twin-example.PNG"/></div>
-<div><code>Import > Examples > azure iot-edge > input-example</code>
+<div><code>Import > Examples > azure iot-edge > input-example</code><br/>
 <img style="align:left;float:none" src="images/input-example.PNG"/></div>
-<div><code>Import > Examples > azure iot-edge > output-example</code>
+<div><code>Import > Examples > azure iot-edge > output-example</code><br/>
 <img style="align:left;float:none" src="images/output-example.PNG"/></div>
-<div><code>Import > Examples > azure iot-edge > method-example</code>
+<div><code>Import > Examples > azure iot-edge > method-example</code><br/>
 <img style="align:left;float:none" src="images/method-example.PNG"/></div>
 
