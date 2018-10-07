@@ -92,7 +92,7 @@ The Module Method needs a connection to a Module Client and the name of the "met
 <li>Open one of the examples as a starter. For instance the full example, containing all custom nodes: <code>Import > Examples > azure iot-edge > full-example</code></li>
 <li>Deploy the example and see the output either in the debug window of Node-Red or using device explorer on windows for the output messages send to IoT Hub</li>
 <li>If you want to deploy more output, input or method nodes you can drag these onto the Node-Red design service and connect them to the Module Client using the existing one as the configuration node in the node settings.</li>
-<li>You can deploy any other Nod-Red node if needed and interact with them, but remember you are running in a container and communication with serial ports, etc. might require additional setup of the container host [Docker].</li>
+<li>You can deploy any other Node-Red node if needed and interact with them, but remember you are running in a container and communication with serial ports, etc. might require additional setup of the container host [Docker].</li>
 <li>My assumption is you know how to work with Node-Red, but if you don't you can find Node-Red's documentation here: [https://nodered.org/docs/user-guide/]</li>
 </ol>
 
