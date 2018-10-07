@@ -218,7 +218,13 @@ module.exports = function (RED) {
                 }
 
                 getResponse(node).then(function(rspns){
-                    var responseBody = rspns.response;
+                    var responseBody;
+                    if (typeof (msg.payload) != "string") {
+                        responseBody = rspns.response;
+                    } else {
+                        //Converting string to JSON Object
+                        responseBody = JSON.parse(rspns.response);
+                    }
                     response.send(rspns.status, responseBody, function(err) {
                         if (err) {
                         node.log('Failed sending method response: ' + err);
