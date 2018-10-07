@@ -218,9 +218,7 @@ module.exports = function (RED) {
                 }
 
                 getResponse(node).then(function(rspns){
-                    var responseBody = {
-                        message: rspns.response
-                    }
+                    var responseBody = rspns.response;
                     response.send(rspns.status, responseBody, function(err) {
                         if (err) {
                         node.log('Failed sending method response: ' + err);
