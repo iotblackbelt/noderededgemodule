@@ -59,11 +59,11 @@ An example of a route that can be used to validate sending input to the Node-Red
 
 ## Module nodes
 The Node-Red module contains a number of custom nodes placed in the group "Azure IoT Edge". These node are "Module Twin", "Module Input", "Module Output", and "Module Method". These node represent the interaction that can be done with an Azure IoT Edge Module:
-<ol display="block">
-<li display="block">Module Twin:
+<ol>
+<li>Module Twin:
 <ol><li>The Module Twin enables you to interact with the module twin on IoT Hub. The node output will provide the twin desired property changes and the node input will enable you to send reported propeties back to the IoT Hub.<br/>
 Setting for the Module Twin: 
-<p><img align="left" src="images/edit-module-twin.PNG"/></p>
+<p><img align="left" display="block" src="images/edit-module-twin.PNG"/></p>
 </li></ol>
 </li>
 <li>Module Input:
