@@ -1,5 +1,5 @@
 # Azure IoT Edge Node-Red Module
-<p>The Azure IoT Edge Node-Red Module is a module that can be deployed to Azure IoT Edge for prototyping and testing purposes. This module is provided "as-is", without any guarantee. The module can be found on Docker Hub [https://hub.docker.com/r/gbbiotwesouth/noderededgemodule/] and the source code can be found in the noderedmodule directory. If you want to create your own Node-Red module, just follow the steps that can be found inour documentation to create a Node.js IoT Edge module [https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-node-module] and use the Node.js code provide in this repository.</p>
+<p>The Azure IoT Edge Node-Red Module is a module that can be deployed to Azure IoT Edge for prototyping and testing purposes. This module is provided "as-is", without any guarantee. The module can be found on Docker Hub [https://hub.docker.com/r/gbbiotwesouth/noderededgemodule/] and the source code can be found in the noderedmodule directory. If you want to create your own Node-Red module, just follow the steps that can be found in our documentation to create a Node.js IoT Edge module [https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-node-module] and use the Node.js code provided in this repository.</p>
 <p align="center">
 <img src="images/screenshot.PNG">
 </p>
