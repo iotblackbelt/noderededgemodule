@@ -27,7 +27,7 @@
   }
 }</code></pre>
 </li>
-<li>NB: If you are deploying the Raspberry Pi version please ensure that you set the edgeHub environment variable "OptimizeForPerformance" to "false". See [https://docs.microsoft.com/en-us/azure/iot-edge/troubleshoot#stability-issues-on-resource-constrained-devices] for more information</li>
+<li>NB: If you are deploying to a Raspberry Pi please ensure that you set the edgeHub environment variable "OptimizeForPerformance" to "false". See [https://docs.microsoft.com/en-us/azure/iot-edge/troubleshoot#stability-issues-on-resource-constrained-devices] for more information</li>
 <li><p>Back in the <strong>Add modules</strong> step, select <strong>Next</strong>.</p>
 </li>
 <li><p>In the <strong>Specify routes</strong> step, you should have a default route that sends all messages from all modules to IoT Hub. If not, add the following code then select <strong>Next</strong>.</p>
@@ -62,7 +62,7 @@ The Node-Red module contains a number of custom nodes placed in the group "Azure
 <ol>
 <li>Module Twin:
 <ol><li>The Module Twin enables you to interact with the module twin on IoT Hub. The node output will provide the twin desired property changes and the node input will enable you to send reported propeties back to the IoT Hub.<br/>
-Setting for the Module Twin:</li></ol>
+Setting for the Module Twin: <img align="left" src="images/edit-module-twin.PNG"/></li></ol>
 </li>
 <li>Module Input:
 <ol><li>The Module Input enables you to receive input from other modules on your IoT Edge device. To receive input you have to setup the route to point at the input you specified when you created the node. The node output will provide you with the incoming telemetry message.</li></ol>
