@@ -60,19 +60,28 @@ An example of a route that can be used to validate sending input to the Node-Red
 ## Module nodes
 The Node-Red module contains a number of custom nodes placed in the group "Azure IoT Edge". These node are "Module Twin", "Module Input", "Module Output", and "Module Method". These node represent the interaction that can be done with an Azure IoT Edge Module:
 <ol>
-<li>Module Twin:
+<li>Module Client:<br/>
+The Module Client is a configuration node that needs to be created to make the connection between Node-Red and the other Azure IoT Edge nodes. Only one Module Client node should be used when using the Node-Red module. If you use one of the examples a Module Client will be created autmoatically.
+</li>
+<li>Module Twin:<br/>
 The Module Twin enables you to interact with the module twin on IoT Hub. The node output will provide the twin desired property changes and the node input will enable you to send reported propeties back to the IoT Hub.<br/>
-Setting for the Module Twin: 
+The Module Twin only needs a connection to a Module Client: 
 <div><img style="align:left;float:none" src="images/edit-module-twin.PNG"/></div>
 </li>
-<li>Module Input:
-<ol><li>The Module Input enables you to receive input from other modules on your IoT Edge device. To receive input you have to setup the route to point at the input you specified when you created the node. The node output will provide you with the incoming telemetry message.</li></ol>
+<li>Module Input:<br/>
+The Module Input enables you to receive input from other modules on your IoT Edge device. To receive input you have to setup the route to point at the input you specified when you created the node. The node output will provide you with the incoming telemetry message.<br/>
+The Module Input needs a connection to a Module Client and the name of the "input": 
+<div><img style="align:left;float:none" src="images/edit-module-input.PNG"/></div>
 </li>
-<li>Module Output:
-<ol><li>The Module Output enables you to send output to the edgeHub. To send output to another module or to the IoT Hub you have to setup the route to use the output when you created the node. The node input will enable you to send the telemetry message.</li></ol>
+<li>Module Output:<br/>
+The Module Output enables you to send output to the edgeHub. To send output to another module or to the IoT Hub you have to setup the route to use the output when you created the node. The node input will enable you to send the telemetry message.<br/>
+The Module Output needs a connection to a Module Client and the name of the "output": 
+<div><img style="align:left;float:none" src="images/edit-module-output.PNG"/></div>
 </li>
 <li>Module Method:
-<ol><li>The Module Method enables you receive module direct methods. The setup of the module defines which method the node is responding to and what the response is for the method call. Currently the response is fixed in the node setup.</li></ol>
+The Module Method enables you receive module direct methods. The setup of the module defines which method the node is responding to and what the response is for the method call. Currently the response is fixed in the node setup.<br/>
+The Module Methos needs a connection to a Module Client and the name of the "method": 
+<div><img style="align:left;float:none" src="images/edit-module-method.PNG"/></div>
 </li>
 </ol>
 
