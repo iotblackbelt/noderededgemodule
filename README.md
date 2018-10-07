@@ -1,6 +1,8 @@
 # Azure IoT Edge Node-Red Module
 <p>The Azure IoT Edge Node-Red Module is a module that can be deployed to Azure IoT Edge for prototyping and testing purposes. The Module is provided "as-is", without any garantee. The module can be found on Docker Hub [https://hub.docker.com/r/gbbiotwesouth/noderededgemodule/].</p>
-![alt text](images/screenshot.PNG "Azure IoT Edge Node-Red Module")
+<p align="center">
+<img src="images/screenshot.PNG">
+</p>
 
 ## How to deploy the module
 <p>The module is available as a AMD64 or ARM  module. To run the module deploy an IoT Edge on Linux [https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux] or Raspberry Pi [https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux-arm], and then deploy the respective module (AMD64 or ARM32V7):
