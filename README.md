@@ -78,7 +78,7 @@ The Module Output enables you to send output to the edgeHub. To send output to a
 The Module Output needs a connection to a Module Client and the name of the "output": 
 <div><img style="align:left;float:none" src="images/edit-module-output.PNG"/></div>
 </li>
-<li>Module Method:
+<li>Module Method:<br/>
 The Module Method enables you receive module direct methods. The setup of the module defines which method the node is responding to and what the response is for the method call. Currently the response is fixed in the node setup.<br/>
 The Module Methos needs a connection to a Module Client and the name of the "method": 
 <div><img style="align:left;float:none" src="images/edit-module-method.PNG"/></div>
@@ -92,3 +92,17 @@ The Module Methos needs a connection to a Module Client and the name of the "met
 <li>Deploy the example and see the output either in the debug window of Node-Red or using device explorer on windows for the output messages send to IoT Hub</li>
 <li>If you want to deploy more output, input or method nodes you can drag these onto the Node-Red design service and conect them to the Module Client using the existing one as the configuration node in the node settings.</li>
 </ol>
+
+## Examples
+The module comes with a number a examples with Node-Red:
+<div><code>Import > Examples > azure iot-edge > full-example</code>
+<img style="align:left;float:none" src="images/full-example.PNG"/></div>
+<div><code>Import > Examples > azure iot-edge > twin-example</code>
+<img style="align:left;float:none" src="images/twin-example.PNG"/></div>
+<div><code>Import > Examples > azure iot-edge > input-example</code>
+<img style="align:left;float:none" src="images/input-example.PNG"/></div>
+<div><code>Import > Examples > azure iot-edge > output-example</code>
+<img style="align:left;float:none" src="images/output-example.PNG"/></div>
+<div><code>Import > Examples > azure iot-edge > method-example</code>
+<img style="align:left;float:none" src="images/method-example.PNG"/></div>
+
