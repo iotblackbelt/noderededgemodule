@@ -5,7 +5,7 @@
 </p>
 
 ## How to deploy the module
-<p>The module is available as a AMD64 or ARM  module. To run the module deploy an IoT Edge on Linux [https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux] or Raspberry Pi [https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux-arm], and then deploy the respective module (AMD64 or ARM32V7):
+<p>The module is available as a AMD64 or ARM32 module. To run the module deploy an IoT Edge on Linux [https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux] or Raspberry Pi [https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux-arm], and then deploy the respective module (AMD64 or ARM32V7):
 
 <ol>
 <li>In the Azure portal, navigate to your IoT hub.</li>
@@ -61,7 +61,8 @@ An example of a route that can be used to validate sending input to the Node-Red
 The Node-Red module contains a number of custom nodes placed in the group "Azure IoT Edge". These node are "Module Twin", "Module Input", "Module Output", and "Module Method". These node represent the interaction that can be done with an Azure IoT Edge Module:
 <ol>
 <li><strong>Module Client:</strong><br/>
-The Module Client is a configuration node that needs to be created to make the connection between the IoT Edge and the Node-Red Azure IoT Edge nodes. Only one Module Client node should be used when using the Node-Red module. If you use one of the examples a Module Client will be created autmoatically.
+The Module Client is a configuration node that needs to be created to make the connection between the IoT Edge and the Node-Red Azure IoT Edge nodes. If you use one of the examples a Module Client will be created autmoatically.<br/>
+<I><strong>NB:</strong> Only one Module Client node should be used when using the Node-Red module.</I>
 </li>
 <li><strong>Module Twin:</strong><br/>
 The Module Twin enables you to interact with the module twin on IoT Hub. The node output will provide the twin desired property changes and the node input will enable you to send reported propeties back to the IoT Hub.<br/>
@@ -80,7 +81,7 @@ The Module Output needs a connection to a Module Client and the name of the "out
 </li>
 <li><strong>Module Method:</strong><br/>
 The Module Method enables you receive module direct methods. The setup of the module defines which method the node is responding to and what the response is for the method call. Currently the response is fixed in the node setup.<br/>
-The Module Methos needs a connection to a Module Client and the name of the "method": 
+The Module Method needs a connection to a Module Client and the name of the "method": 
 <div><img style="align:left;float:none" src="images/edit-module-method.PNG"/></div>
 </li>
 </ol>
