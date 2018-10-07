@@ -61,7 +61,7 @@ An example of a route that can be used to validate sending input to the Node-Red
 The Node-Red module contains a number of custom nodes placed in the group "Azure IoT Edge". These node are "Module Twin", "Module Input", "Module Output", and "Module Method". These node represent the interaction that can be done with an Azure IoT Edge Module:
 <ol>
 <li><strong>Module Client:</strong><br/>
-The Module Client is a configuration node that needs to be created to make the connection between Node-Red and the other Azure IoT Edge nodes. Only one Module Client node should be used when using the Node-Red module. If you use one of the examples a Module Client will be created autmoatically.
+The Module Client is a configuration node that needs to be created to make the connection between the IoT Edge and the Node-Red Azure IoT Edge nodes. Only one Module Client node should be used when using the Node-Red module. If you use one of the examples a Module Client will be created autmoatically.
 </li>
 <li><strong>Module Twin:</strong><br/>
 The Module Twin enables you to interact with the module twin on IoT Hub. The node output will provide the twin desired property changes and the node input will enable you to send reported propeties back to the IoT Hub.<br/>
