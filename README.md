@@ -97,7 +97,7 @@ The Module Method needs a connection to a Module Client and the name of the "met
 </ol>
 
 ## Examples
-The module comes with a number a examples within Node-Red:
+The module comes with a number of examples within Node-Red:
 <div><code>Import > Examples > azure iot-edge > full-example</code><br/>
 <img style="align:left;float:none" src="images/full-example.PNG"/></div>
 <div><code>Import > Examples > azure iot-edge > twin-example</code><br/>
