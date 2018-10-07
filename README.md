@@ -64,12 +64,12 @@ The Module Client is a configuration node that needs to be created to make the c
 <I><strong>NB:</strong> Only one Module Client node should be used when using the Node-Red module.</I>
 </li>
 <li><strong>Module Twin:</strong><br/>
-The Module Twin enables you to interact with the module twin on IoT Hub. The node output will provide the twin desired property changes and the node input will enable you to send reported properties back to the IoT Hub. The message coming from the node output will have the topic "desired" added to it for selection and identification purposes.<br/>
+The Module Twin enables you to interact with the module twin on IoT Hub. The node output will provide the twin desired property changes and the node input will enable you to send reported properties back to the IoT Hub. The message coming from the node output will have the property "topic: desired" added to it for selection and identification purposes.<br/>
 The Module Twin only needs a connection to a Module Client: 
 <div><img style="align:left;float:none" src="images/edit-module-twin.PNG"/></div>
 </li>
 <li><strong>Module Input:</strong><br/>
-The Module Input enables you to receive input from other modules on your IoT Edge device. To receive input, you have to setup the route to point at the input you specified when you created the node. The node output will provide you with the incoming telemetry message. The message coming from the node output will have the properties "topic:input" and "input:&#x3C;input name&#x3E;" added to it for selection and identification purposes.<br/>
+The Module Input enables you to receive input from other modules on your IoT Edge device. To receive input, you have to setup the route to point at the input you specified when you created the node. The node output will provide you with the incoming telemetry message. The message coming from the node output will have the properties "topic: input" and "input: &#x3C;input name&#x3E;" added to it for selection and identification purposes.<br/>
 The Module Input needs a connection to a Module Client and the name of the "input": 
 <div><img style="align:left;float:none" src="images/edit-module-input.PNG"/></div>
 </li>
@@ -79,8 +79,8 @@ The Module Output needs a connection to a Module Client and the name of the "out
 <div><img style="align:left;float:none" src="images/edit-module-output.PNG"/></div>
 </li>
 <li><strong>Module Method:</strong><br/>
-The Module Method enables you receive module direct methods. The setup of the module defines which method the node is responding to and what the response is for the method call. The message coming from the node output will have the properties "topic:method", "method:&#x3C;method name&#x3E;" and "payload:&#x3C;method payload&#x3E;" added to it for selection and identification purposes.<br/>
-The input of the node will have to be used to send a response for the method call. When sending a return for the method call on the input, the message property "response.status" needs to be set. See the function in the example for details.<br/>
+The Module Method enables you receive module direct methods. The setup of the module defines which method the node is responding to and what the response is for the method call. The message coming from the node output will have the properties "topic: method", "method: &#x3C;method name&#x3E;" and "payload: &#x3C;method payload&#x3E;" added to it for selection and identification purposes.<br/>
+The input of the node will have to be used to send a response for the method call. The response (message) wil have to be connected (indirectly) to the message coming from the node output, to ensure a closed loop for the method. When sending a return for the method call on the input, the message property "status: &#x3C;your status&#x3E;" needs to be set on the message. See the function in the example for details.<br/>
 The Module Method needs a connection to a Module Client and the name of the "method": 
 <div><img style="align:left;float:none" src="images/edit-module-method.PNG"/></div>
 </li>
