@@ -1,5 +1,6 @@
 # Azure IoT Edge Node-Red Module
 <p>The Azure IoT Edge Node-Red Module is a module that can be deployed to Azure IoT Edge for prototyping and testing purposes. The Module is provided "as-is", without any garantee. The module can be found on Docker Hub [https://hub.docker.com/r/gbbiotwesouth/noderededgemodule/].</p>
+![alt text](images/screenshot.PNG "Azure IoT Edge Node-Red Module")
 
 ## How to deploy the module
 <p>The module is available as a AMD64 or ARM  module. To run the module deploy an IoT Edge on Linux [https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux] or Raspberry Pi [https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux-arm], and then deploy the respective module (AMD64 or ARM32V7):
@@ -24,6 +25,7 @@
   }
 }</code></pre>
 </li>
+<li>NB: If you are deploying the Raspberry Pi version please ensure that you set the edgeHub environment variable "OptimizeForPerformance" to "false". See [https://docs.microsoft.com/en-us/azure/iot-edge/troubleshoot#stability-issues-on-resource-constrained-devices] for more information</li>
 <li><p>Back in the <strong>Add modules</strong> step, select <strong>Next</strong>.</p>
 </li>
 <li><p>In the <strong>Specify routes</strong> step, you should have a default route that sends all messages from all modules to IoT Hub. If not, add the following code then select <strong>Next</strong>.</p>
@@ -57,7 +59,8 @@ An example of a route that can be used to validate sending input to the Node-Red
 The Node-Red module contains a number of custom nodes placed in the group "Azure IoT Edge". These node are "Module Twin", "Module Input", "Module Output", and "Module Method". These node represent the interaction that can be done with an Azure IoT Edge Module:
 <ol>
 <li>Module Twin:
-<ol><li>The Module Twin enables you to interact with the module twin on IoT Hub. The node output will provide the twin desired property changes and the node input will enable you to send reported propeties back to the IoT Hub.</li></ol>
+<ol><li>The Module Twin enables you to interact with the module twin on IoT Hub. The node output will provide the twin desired property changes and the node input will enable you to send reported propeties back to the IoT Hub.<br/>
+Setting for the Module Twin:</li></ol>
 </li>
 <li>Module Input:
 <ol><li>The Module Input enables you to receive input from other modules on your IoT Edge device. To receive input you have to setup the route to point at the input you specified when you created the node. The node output will provide you with the incoming telemetry message.</li></ol>
