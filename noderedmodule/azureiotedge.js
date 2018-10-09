@@ -220,10 +220,10 @@ module.exports = function (RED) {
                 getResponse(node).then(function(rspns){
                     var responseBody;
                     if (typeof (rspns.response) != "string") {
-                        responseBody = rspns.response;
+                        responseBody = JSON.stringify(rspns.response);
                     } else {
                         //Converting string to JSON Object
-                        responseBody = JSON.parse(rspns.response);
+                        responseBody = rspns.response;
                     }
                     response.send(rspns.status, responseBody, function(err) {
                         if (err) {
