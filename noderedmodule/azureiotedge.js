@@ -1,7 +1,7 @@
 module.exports = function (RED) {
     'use strict'
 
-    var Transport = require('azure-iot-device-mqtt').Mqtt;
+    var Transport = require('azure-iot-device-amqp').Amqp;
     var Client = require('azure-iot-device').ModuleClient;
     var Message = require('azure-iot-device').Message;
 
@@ -219,7 +219,7 @@ module.exports = function (RED) {
 
                 getResponse(node).then(function(rspns){
                     var responseBody;
-                    if (typeof (msg.payload) != "string") {
+                    if (typeof (rspns.response) != "string") {
                         responseBody = rspns.response;
                     } else {
                         //Converting string to JSON Object
