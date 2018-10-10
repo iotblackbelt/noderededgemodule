@@ -1,7 +1,7 @@
 module.exports = function (RED) {
     'use strict'
 
-    var Transport = require('azure-iot-device-amqp').Amqp;
+    var Transport = require('azure-iot-device-mqtt').Mqtt;
     var Client = require('azure-iot-device').ModuleClient;
     var Message = require('azure-iot-device').Message;
 
@@ -211,7 +211,7 @@ module.exports = function (RED) {
 
                 if(request.payload) {
                     node.log('Method Payload:' + JSON.stringify(request.payload));
-                    node.send({payload: request.payload,topic: "method", method: request.methodName});
+                    node.send({payload: JSON.parse(request.payload),topic: "method", method: request.methodName});
                 }
                 else {
                     node.send({payload: null,topic: "method", method: request.methodName});
@@ -220,9 +220,9 @@ module.exports = function (RED) {
                 getResponse(node).then(function(rspns){
                     var responseBody;
                     if (typeof (rspns.response) != "string") {
+                        // Turn message object into string 
                         responseBody = JSON.stringify(rspns.response);
                     } else {
-                        //Converting string to JSON Object
                         responseBody = rspns.response;
                     }
                     response.send(rspns.status, responseBody, function(err) {
@@ -286,6 +286,7 @@ module.exports = function (RED) {
         return promise;
     }
 
+    // Get module twin using promise, and retry, and slow backoff
     function getTwin(){
         var retries = 10;
         var timeOut = 1000;
