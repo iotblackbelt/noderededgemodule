@@ -58,6 +58,7 @@ An example of a route that can be used to validate sending input to the Node-Red
   }
 }
 </code></pre>
+Replace {noderedmodule} with the name of the Node-Red module you created.
 
 ## Module nodes
 The Node-Red module contains a number of custom nodes placed in the group "Azure IoT Edge". These nodes are "Module Twin", "Module Input", "Module Output", and "Module Method". These nodes represent the interaction that can be done with an Azure IoT Edge Module:
