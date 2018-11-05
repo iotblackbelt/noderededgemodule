@@ -47,6 +47,7 @@ If you want to use physical inputs and outputs on your device (f.i. GPIO on Rasp
 
 Once the module is running you can access Node-Red through the browser on the same network as the edge device using the IP address or network name and port number 1880: http://&#x3C;edge-device-ip&#x3E;:1880
 
+## Use the tempSensor to simulate a device
 If you want to simulate a device sending data on the IoT Edge you can deploy the tempSensor module. For more information on how to do this please check out: https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux-arm.
 
 An example of a route that can be used to validate sending input to the Node-Red module:
