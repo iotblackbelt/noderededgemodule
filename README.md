@@ -13,7 +13,7 @@
 <li>Select <strong>Set Modules</strong>.</li>
 <li>In the <strong>Deployment Modules</strong> section of the page, click <strong>Add</strong> then select <strong>IoT Edge Module</strong>.</li>
 <li>In the <strong>Name</strong> field, enter <code>nodered</code>. </li>
-<li>In the <strong>Image URI</strong> field, enter <code>gbbiotwesouth/noderededgemodule:0.6.0-amd64</code> or <code>gbbiotwesouth/noderededgemodule:0.6.0-arm32v7</code>. </li>
+<li>In the <strong>Image URI</strong> field, enter <code>gbbiotwesouth/noderededgemodule:0.6.3-amd64</code> or <code>gbbiotwesouth/noderededgemodule:0.6.3-arm32v7</code>. </li>
 <li><p>Set the Container Create Options and select <strong>Save</strong>.</p>
     <pre><code class="lang-json">{
   "HostConfig": {
