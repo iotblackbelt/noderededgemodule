@@ -1,5 +1,5 @@
 {
-    "name": "<your_name>",
+    "name": "node-red-edge-module",
     "description": "Connector to Azure IoT Edge on Node-Red",
     "version": "0.1.1",
     "engines": {

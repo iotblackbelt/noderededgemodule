@@ -1,0 +1,21 @@
+FROM arm32v7/node:8-slim
+
+# Install python and rpi.gpio library for GPIO access.
+RUN apt-get -q update && \
+	apt-get -qy install python-dev python-pip gcc && \
+    pip install rpi.gpio
+
+RUN npm install -g --unsafe-perm node-red
+WORKDIR /usr/local/lib/node_modules/node-red/node_modules/node-red-contrib-azure-iot
+
+COPY azureiotedge.js ./
+COPY azureiotedge.html ./
+COPY ./icons/azureiotedge.png ./icons/
+COPY ./examples/* ./examples/
+COPY package*.json ./
+
+RUN npm install --production
+
+EXPOSE 1880/tcp
+
+CMD ["node-red"]
