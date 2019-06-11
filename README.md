@@ -30,7 +30,8 @@
     }
   }
 }</code></pre>
-If you want to use physical inputs and outputs on your device (f.i. GPIO on Raspberry Pi) you need to make sure these physical devices are exposed to the module as part of the configuration options. In the create options we've set "Privileged" to true, giving you access to all underlying hardware devices. On the IoT Edge device create a '/data' directory. This directory will hold the changes made to the node-red settings and custom flows created.
+If you want to use physical inputs and outputs on your device (f.i. GPIO on Raspberry Pi) you need to make sure these physical devices are exposed to the module as part of the configuration options. In the create options we've set "Privileged" to true, giving you access to all underlying hardware devices.</li>
+    <li>On the IoT Edge device create a <strong>'/data'</strong> directory. This directory will hold the changes made to the node-red settings and custom flows created.
 </li>
 <li><strong>NB:</strong> If you are deploying to a Raspberry Pi please ensure that you set the edgeHub environment variable "OptimizeForPerformance" to "false". See [https://docs.microsoft.com/en-us/azure/iot-edge/troubleshoot#stability-issues-on-resource-constrained-devices] for more information</li>
 <li><p>Back in the <strong>Add modules</strong> step, select <strong>Next</strong>.</p>
