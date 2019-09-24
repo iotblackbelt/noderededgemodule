@@ -211,7 +211,7 @@ module.exports = function (RED) {
 
                 if(request.payload) {
                     node.log('Method Payload:' + JSON.stringify(request.payload));
-                    node.send({payload: JSON.parse(request.payload),topic: "method", method: request.methodName});
+                    node.send({payload: request.payload,topic: "method", method: request.methodName});
                 }
                 else {
                     node.send({payload: null,topic: "method", method: request.methodName});
