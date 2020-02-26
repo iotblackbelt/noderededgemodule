@@ -1,14 +1,14 @@
 {
-    "name": "<your_name>",
+    "name": "noderededgemodule",
     "description": "Connector to Azure IoT Edge on Node-Red",
     "version": "0.1.1",
     "engines": {
       "node": ">=0.10.0"
     },
     "dependencies": {
-      "azure-iot-device": "1.7.0",
-      "azure-iot-device-mqtt": "1.7.0",
-      "azure-iot-device-amqp": "1.7.0"
+      "azure-iot-device": "^1.12.2",
+      "azure-iot-device-mqtt": "^1.11.2",
+      "azure-iot-device-amqp": "^1.11.2"
     },
     "keywords": [
       "node-red",
@@ -21,9 +21,8 @@
       }
     },
     "author": {
-      "name": "<your_name>",
-      "email": "<your_email_address>",
-      "url": "<your_url>"
+      "name": "Eric van Uum",
+      "email": "eric@ericvanuum.com"
     }
   }
   
