@@ -18,4 +18,4 @@ EXPOSE 1880/tcp
 
 USER node
 
-CMD ["node-red"]
+CMD ["node-red", "--userDir", "/data/noderededgemodule", "--flowFile", "flows_noderededgemodule.json"]
