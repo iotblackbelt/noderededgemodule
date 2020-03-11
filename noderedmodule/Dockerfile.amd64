@@ -4,7 +4,7 @@ WORKDIR /App
 
 RUN npm install -g --unsafe-perm node-red
 
-WORKDIR /usr/local/lib/node_modules/node-red/node_modules/node-red-contrib-azure-iot
+WORKDIR /usr/local/lib/node_modules/node-red/node_modules/node-red-contrib-azure-iot-edge
 
 COPY azureiotedge.js ./
 COPY azureiotedge.html ./
