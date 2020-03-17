@@ -14,6 +14,8 @@ COPY package*.json ./
 
 RUN npm install --production
 
+WORKDIR /App
+
 EXPOSE 1880/tcp
 
 USER node

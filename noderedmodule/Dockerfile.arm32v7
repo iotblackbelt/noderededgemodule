@@ -9,10 +9,12 @@ WORKDIR /usr/local/lib/node_modules/node-red/node_modules/node-red-contrib-azure
 COPY azureiotedge.js ./
 COPY azureiotedge.html ./
 COPY ./icons/azureiotedge.png ./icons/
-COPY ./examples/* ./examples/
+COPY ./examples/ ./examples/
 COPY package*.json ./
 
 RUN npm install --production
+
+WORKDIR /App
 
 EXPOSE 1880/tcp
 

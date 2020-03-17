@@ -17,7 +17,7 @@
     ],
     "node-red": {
       "nodes": {
-        "Azure": "azureiotedge.js"
+        "Azure IoT": "azureiotedge.js"
       }
     },
     "author": {
