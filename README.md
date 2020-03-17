@@ -20,7 +20,7 @@
     "Privileged": true,
     "Binds":[
         "/data:/data"
-    ]
+    ],
     "PortBindings": {
       "1880/tcp": [
         {
