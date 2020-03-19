@@ -1,6 +1,6 @@
 {
     "name": "noderededgemodule",
-    "description": "Connector to Azure IoT Edge on Node-Red",
+    "description": "Node-Red Module for Azure IoT Edge",
     "version": "0.1.1",
     "engines": {
       "node": ">=0.10.0"
@@ -13,16 +13,13 @@
     "keywords": [
       "node-red",
       "Azure",
+      "Azure IoT",
       "Azure IoT Edge"
     ],
     "node-red": {
       "nodes": {
         "Azure IoT": "azureiotedge.js"
       }
-    },
-    "author": {
-      "name": "Eric van Uum",
-      "email": "eric@ericvanuum.com"
     }
   }
   

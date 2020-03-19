@@ -19,7 +19,7 @@
   "HostConfig": {
     "Privileged": true,
     "Binds":[
-        "/node-red:/home/node/.node-red"
+        "/node-red:/node-red"
     ],
     "PortBindings": {
       "1880/tcp": [

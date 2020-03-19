@@ -37,7 +37,7 @@
             "restartPolicy": "always",
             "settings": {
               "image": "gbbiotwesouth/noderededgemodule:0.11.0-amd64",
-              "createOptions": "{\"HostConfig\": {\"Privileged\": true,\"Binds\":[\"/node-red:/home/node/.node-red\"],\"PortBindings\": {\"1880/tcp\": [{\"HostPort\": \"1880\"}]}}}"
+              "createOptions": "{\"HostConfig\": {\"Privileged\": true,\"Binds\":[\"/node-red:/node-red\"],\"PortBindings\": {\"1880/tcp\": [{\"HostPort\": \"1880\"}]}}}"
             }
           }
         }
