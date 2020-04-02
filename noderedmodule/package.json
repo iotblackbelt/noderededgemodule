@@ -2,6 +2,12 @@
     "name": "noderededgemodule",
     "description": "Node-Red Module for Azure IoT Edge",
     "version": "0.1.1",
+    "license" : "MIT",
+    "author": "Eric van Uum",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/iotblackbelt/noderededgemodule.git"
+    },
     "engines": {
       "node": ">=0.10.0"
     },
