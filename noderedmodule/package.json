@@ -1,5 +1,5 @@
 {
-    "name": "noderededgemodule",
+    "name": "node-red-contrib-azure-iot-edge-module",
     "description": "Node-Red Module for Azure IoT Edge",
     "version": "0.1.1",
     "license" : "MIT",
