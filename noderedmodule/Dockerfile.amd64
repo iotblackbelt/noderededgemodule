@@ -2,10 +2,15 @@ FROM node:10
 
 WORKDIR /App
 
+# Install Node Red
 RUN npm install -g --unsafe-perm node-red
+# Install the dashboard extension
+WORKDIR /usr/local/lib/node_modules/node-red/node_modules/
+RUN npm install node-red-dashboard
 
 WORKDIR /usr/local/lib/node_modules/node-red/node_modules/node-red-contrib-azure-iot-edge
 
+# Copy Azure IoT Edge Module nodes
 COPY azureiotedge.js ./
 COPY azureiotedge.html ./
 COPY ./icons/azureiotedge.png ./icons/

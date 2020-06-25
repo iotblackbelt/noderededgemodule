@@ -13,7 +13,7 @@
 <li>Select <strong>Set Modules</strong>.</li>
 <li>In the <strong>Deployment Modules</strong> section of the page, click <strong>Add</strong> then select <strong>IoT Edge Module</strong>.</li>
 <li>In the <strong>Name</strong> field, enter <code>nodered</code>. </li>
-<li>In the <strong>Image URI</strong> field, enter <code>gbbiotwesouth/noderededgemodule:0.12.0-amd64</code> or <code>gbbiotwesouth/noderededgemodule:0.12.0-arm32v7</code>. </li>
+<li>In the <strong>Image URI</strong> field, enter <code>gbbiotwesouth/noderededgemodule:0.14.0-amd64</code> or <code>gbbiotwesouth/noderededgemodule:0.14.0-arm32v7</code>. </li>
 <li><p>Set the Container Create Options and select <strong>Save</strong>.</p>
     <pre><code class="lang-json">{
   "HostConfig": {
@@ -99,8 +99,9 @@ The Module Method needs a connection to a Module Client and the name of the "met
 <li>Access the Node-Red module using a browser on the same network as the IoT Edge device: <br/>http://&#x3C;edge-device-ip&#x3E;:1880</li>
 <li>Open the example as a starter, containing all custom nodes: <code>Import > Examples > azure iot-edge > example</code></li>
 <li>Deploy the example and see the output either in the debug window of Node-Red or using device explorer on windows for the output messages send to IoT Hub.<br/>
-<i><strong>NB:</strong>The example assumes you've deployed the tempSensor and related route as mentoined above. If you see no messages coming into the node-red module input, check whether you've named the modules and the end-points the same and used them correctly in the route.</i></li>
+<i><strong>NB:</strong>The example assumes you've deployed the tempSensor and related route as mentoined above. The provided deployment templates deploy a setup specifically for the Node-Red example. If you deploy by hand and see no messages coming into the node-red module input, check whether you've named the modules and the end-points the same and used them correctly in the route.</i></li>
 <li>If you want to deploy more output, input or method nodes you can drag these onto the Node-Red design service and connect them to the Module Client using the existing one as the Nodule Client configuration node in the node settings.</li>
 <li>You can deploy any other Node-Red node if needed and interact with them, but remember you are running in a container and communication with serial ports, etc. might require additional setup of the container host [Moby].</li>
 <li>My assumption is you know how to work with Node-Red, but if you don't you can find Node-Red's documentation here: [https://nodered.org/docs/user-guide/]</li>
+<li>The module includes the dashboard nodes of Node Red. The example comes with a pre-configured dashboard example: http://&#x3C;edge-device-ip&#x3E;:1880/ui<br/><img style="align:left;float:none" src="images/dashboard.png"/></li>
 </ol>

@@ -36,8 +36,23 @@
               "status": "running",
               "restartPolicy": "always",
               "settings": {
-                "image": "gbbiotwesouth/noderededgemodule:0.11.0-amd64",
+                "image": "gbbiotwesouth/noderededgemodule:0.14.0-arm32v7",
                 "createOptions": "{\"HostConfig\": {\"Privileged\": true,\"Binds\":[\"/node-red:/node-red\"],\"PortBindings\": {\"1880/tcp\": [{\"HostPort\": \"1880\"}]}}}"
+              }
+            },
+            "tempSensor": {
+              "version": "1.0",
+              "type": "docker",
+              "status": "running",
+              "restartPolicy": "always",
+              "settings": {
+                "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+                "createOptions": ""
+              },
+              "env": {
+                "MessageCount": {
+                    "value": -1
+                }
               }
             }
           }
@@ -47,7 +62,9 @@
         "properties.desired": {
           "schemaVersion": "1.0",
           "routes": {
-              "route": "FROM /messages/* INTO $upstream"
+            "routeToHub": "FROM /messages/modules/NoderedModule/outputs/* INTO $upstream",
+            "RedTotemp": "FROM /messages/modules/NoderedModule/outputs/output3 INTO BrokeredEndpoint(\"/modules/tempSensor/inputs/control\")",
+            "tempToRed": "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/NoderedModule/inputs/input1\")"
           },
           "storeAndForwardConfiguration": {
             "timeToLiveSecs": 7200

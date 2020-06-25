@@ -182,7 +182,7 @@ module.exports = function (RED) {
             });
         })
         .catch(function(err){
-            node.log("Module Ouput can't be loaded: " + err);
+            node.error("Module Output can't be loaded: " + err);
         });
 
         node.on('close', function(done) {
@@ -234,7 +234,7 @@ module.exports = function (RED) {
                     });
                 })
                 .catch(function(err){
-                    node.log("Failed sending method response: response not received.");
+                    node.error("Failed sending method response: response not received.");
                 });
                 // reset response
                 node.response = null;
@@ -252,7 +252,7 @@ module.exports = function (RED) {
             });
         })
         .catch(function(err){
-            node.log("Module Method can't be loaded: " + err);
+            node.error("Module Method can't be loaded: " + err);
         });
 
         node.on('close', function(done) {
@@ -347,7 +347,7 @@ module.exports = function (RED) {
 
         client.complete(msg, function (err) {
             if (err) {
-                node.log('error:' + err);
+                node.error('Failed sending message to node output:' + err);
                 setStatus(node, statusEnum.error);
             }
         });
