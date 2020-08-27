@@ -5,7 +5,7 @@
 </p>
 
 ## How to deploy the module
-<p>The module is available as an AMD64 or ARM32 module. To run the module, deploy an IoT Edge on Linux [https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux] or Raspberry Pi [https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux-arm], and then deploy the respective module (AMD64 or ARM32V7):
+<p>The module is available as an AMD64, ARM64 and ARM32 module. To run the module, deploy an IoT Edge on Linux [https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux] or Raspberry Pi [https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux-arm], and then deploy the respective module (AMD64, ARM64v8 or ARM32V7):
 
 <ol>
 <li>In the Azure portal, navigate to your IoT hub.</li>
@@ -13,7 +13,7 @@
 <li>Select <strong>Set Modules</strong>.</li>
 <li>In the <strong>Deployment Modules</strong> section of the page, click <strong>Add</strong> then select <strong>IoT Edge Module</strong>.</li>
 <li>In the <strong>Name</strong> field, enter <code>nodered</code>. </li>
-<li>In the <strong>Image URI</strong> field, enter <code>gbbiotwesouth/noderededgemodule:0.14.0-amd64</code> or <code>gbbiotwesouth/noderededgemodule:0.14.0-arm32v7</code>. </li>
+<li>In the <strong>Image URI</strong> field, enter <code>iotblackbelt/noderededgemodule:1.0.0-amd64</code>, <code>iotblackbelt/noderededgemodule:1.0.0-arm64v8</code> or <code>iotblackbelt/noderededgemodule:1.0.0-arm32v7</code>. </li>
 <li><p>Set the Container Create Options and select <strong>Save</strong>.</p>
     <pre><code class="lang-json">{
   "HostConfig": {

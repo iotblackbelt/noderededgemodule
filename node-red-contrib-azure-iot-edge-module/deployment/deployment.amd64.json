@@ -36,7 +36,7 @@
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "gbbiotwesouth/noderededgemodule:0.14.0-amd64",
+              "image": "iotblackbelt/noderededgemodule:1.0.0-amd64",
               "createOptions": "{\"HostConfig\": {\"Privileged\": true,\"Binds\":[\"/node-red:/node-red\"],\"PortBindings\": {\"1880/tcp\": [{\"HostPort\": \"1880\"}]}}}"
             }
           },

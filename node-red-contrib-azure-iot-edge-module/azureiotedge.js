@@ -17,12 +17,12 @@ module.exports = function (RED) {
         error: { color: "grey", text: "Error" }
     };
 
-    var moduleClient;
+    var edgeClient;
     var moduleTwin;
     var methodResponses = [];
 
-    // Function to create the Module Client 
-    function ModuleClient(config) {
+    // Function to create the IoT Edge Client 
+    function IoTEdgeClient(config) {
         // Store node for further use
         var node = this;
         node.connected = false;
@@ -30,7 +30,7 @@ module.exports = function (RED) {
         // Create the Node-RED node
         RED.nodes.createNode(this, config);
 
-        // Create the module client
+        // Create the IoT Edge client
         Client.fromEnvironment(Transport, function (err, client) {
             if (err) {
                 node.log('Module Client creation error:' + err);
@@ -47,6 +47,7 @@ module.exports = function (RED) {
                         throw err;
                     } else {
                         node.log('Module Client connected.');
+                        edgeClient = client;
                         client.getTwin(function(err, twin) {
                             if (err) {
                                 node.error('Could not get the module twin: ' + err);
@@ -58,7 +59,7 @@ module.exports = function (RED) {
 
                                 node.on('close', function() {
                                     node.log('Azure IoT Edge Module Client closed.');
-                                    moduleClient = null;
+                                    edgeClient = null;
                                     moduleTwin = null;
                                     twin.removeAllListeners();
                                     client.removeAllListeners();
@@ -67,7 +68,6 @@ module.exports = function (RED) {
                                 moduleTwin = twin;
                             }
                         });
-                        moduleClient = client;
                     }
                 });
             }
@@ -82,42 +82,39 @@ module.exports = function (RED) {
         // Create the Node-RED node
         RED.nodes.createNode(this, config);
         setStatus(node, statusEnum.disconnected);  
-        getClient().then(function(client){
+
+        // Get the twin
+        getTwin().then(function(twin){
             setStatus(node, statusEnum.connected);
-            getTwin().then(function(twin){
-                // Register for changes
-                twin.on('properties.desired', function(delta) {
-                    setStatus(node, statusEnum.desired);
-                    node.log('New desired properties received:');
-                    node.log(JSON.stringify(delta));
-                    node.send({payload: delta, topic: "desired"})
+            // Register for changes
+            twin.on('properties.desired', function(delta) {
+                setStatus(node, statusEnum.desired);
+                node.log('New desired properties received:');
+                node.log(JSON.stringify(delta));
+                node.send({payload: delta, topic: "desired"})
+                setStatus(node, statusEnum.connected);
+            });
+
+            node.on('input', function (msg) {
+                setStatus(node, statusEnum.reported);
+                var messageJSON = null;
+    
+                if (typeof (msg.payload) != "string") {
+                    messageJSON = msg.payload;
+                } else {
+                    //Converting string to JSON Object
+                    messageJSON = JSON.parse(msg.payload);
+                }
+
+                twin.properties.reported.update(messageJSON, function(err) {
+                    if (err) throw err;
+                    node.log('Twin state reported.');
                     setStatus(node, statusEnum.connected);
                 });
-
-                node.on('input', function (msg) {
-                    setStatus(node, statusEnum.reported);
-                    var messageJSON = null;
-        
-                    if (typeof (msg.payload) != "string") {
-                        messageJSON = msg.payload;
-                    } else {
-                        //Converting string to JSON Object
-                        messageJSON = JSON.parse(msg.payload);
-                    }
-
-                    twin.properties.reported.update(messageJSON, function(err) {
-                        if (err) throw err;
-                        node.log('Twin state reported.');
-                        setStatus(node, statusEnum.connected);
-                    });
-                });
-            })
-            .catch(function(err){
-                node.log('Module Twin error:' + err);
             });
         })
         .catch(function(err){
-            node.log("Module Twin can't be loaded: " + err);
+            node.log('Module Twin error:' + err);
         });
                         
         node.on('close', function(done) {
@@ -269,8 +266,8 @@ module.exports = function (RED) {
         var promise = Promise.reject();
         for(var i=1; i <= retries; i++) {
             promise = promise.catch( function(){
-                    if (moduleClient){
-                        return moduleClient;
+                    if (edgeClient){
+                        return edgeClient;
                     }
                     else {
                         throw new Error("Module Client not initiated..");
@@ -389,7 +386,7 @@ module.exports = function (RED) {
     }
 
     // Registration of the client into Node-RED
-    RED.nodes.registerType("moduleclient", ModuleClient, {
+    RED.nodes.registerType("edgeclient", IoTEdgeClient, {
         defaults: {
             module: {value: ""}
         }

@@ -1,22 +1,21 @@
 <script type="text/javascript">
-    RED.nodes.registerType('moduleclient',{
+    RED.nodes.registerType('edgeclient',{
         category: 'config',
         color: '#a6bbcf',
         defaults: {
-            module: {value: ""}
         },
         label: function() {
-            return "Module Client";
+            return "IoT Edge Client";
         }
     });
 </script>
 
-<script type="text/x-red" data-template-name="moduleclient">
-    <p>Azure IoT Edge Module Client creates the connection with the Azure IoT Edge module using Node-Red.</p>
+<script type="text/x-red" data-template-name="edgeclient">
+    <p>Azure IoT Edge Client creates the connection with the Azure IoT Edge using Node-Red.</p>
 </script>
 
-<script type="text/x-red" data-help-name="moduleclient">
-    <p>Azure IoT Edge Module Client creates the connection with the Azure IoT Edge module using Node-Red. Node-Red needs to run as a module in Azure IoT Edge for this node to work.</p>
+<script type="text/x-red" data-help-name="edgeclient">
+    <p>Azure IoT Edge Client creates the connection with the Azure IoT Edge using Node-Red. Node-Red needs to run as a module in Azure IoT Edge for this node to work.</p>
     <p>The client will be used by the other nodes to establish the connection with edgeHub.The response defines what the method will send as a return to the IoT Hub.</p>
 </script>
 
@@ -25,7 +24,7 @@
         category: 'Azure IoT',
         color: '#a6bbcf',
         defaults: {
-            client: {value:"",type:"moduleclient",required:true}
+            client: {value:"",type:"edgeclient",required:true}
         },
         inputs:1,
         outputs:1,
@@ -41,14 +40,14 @@
 
 <script type="text/x-red" data-template-name="moduletwin">
     <div class="form-row">
-        <label for="node-input-client"><i class="icon-tag"></i> <span>Module Client</span></label>
+        <label for="node-input-client"><i class="icon-tag"></i> <span>Iot Edge Client</span></label>
         <input type="text" id="node-input-client" placeholder="Client">
     </div>
 </script>
 
 <script type="text/x-red" data-help-name="moduletwin">
-    <p>Azure IoT Edge Module Twin receives desired properties changes and sends reported properties to Azure IoT Edge using Node-Red. Node-Red needs to run as a module in Azure IoT Edge for this node to work.</p>
-    <p>The input of the node enables sending reported properties to the module twin and the output of the node represents the changes to the desired properties.</p>
+    <p>Azure IoT Edge Module Twin receives desired property changes and sends reported properties to Azure IoT Edge using Node-Red. Node-Red needs to run as a module in Azure IoT Edge for this node to work.</p>
+    <p>The input of the node enables sending reported properties to the module twin and the output of the node represents changes to the desired properties.</p>
 </script>
 
 <script type="text/javascript">
@@ -56,7 +55,7 @@
         category: 'Azure IoT',
         color: '#a6bbcf',
         defaults: {
-            client: {value:"",type:"moduleclient", required:true},
+            client: {value:"",type:"edgeclient", required:true},
             input: {value:"", required:true}
         },
         inputs:0,
@@ -73,7 +72,7 @@
 
 <script type="text/x-red" data-template-name="moduleinput">
     <div class="form-row">
-        <label for="node-input-client"><i class="icon-tag"></i> <span>Module Client</span></label>
+        <label for="node-input-client"><i class="icon-tag"></i> <span>IoT Edge Client</span></label>
         <input type="text" id="node-input-client" placeholder="Client">
     </div>
     <div class="form-row">
@@ -92,7 +91,7 @@
         category: 'Azure IoT',
         color: '#a6bbcf',
         defaults: {
-            client: {value:"",type:"moduleclient",required:true},
+            client: {value:"",type:"edgeclient",required:true},
             output: {value:"", required:true}
         },
         inputs:1,
@@ -109,7 +108,7 @@
 
 <script type="text/x-red" data-template-name="moduleoutput">
     <div class="form-row">
-        <label for="node-input-client"><i class="icon-tag"></i> <span>Module Client</span></label>
+        <label for="node-input-client"><i class="icon-tag"></i> <span>IoT Edge Client</span></label>
         <input type="text" id="node-input-client" placeholder="Client">
     </div>
     <div class="form-row">
@@ -119,7 +118,7 @@
 </script>
 
 <script type="text/x-red" data-help-name="moduleoutput">
-    <p>Azure IoT Edge Module Output enable you to send messages to Azure IoT Edge edgeHub using Node-Red. Node-Red needs to run as a module in Azure IoT Edge for this node to work.</p>
+    <p>Azure IoT Edge Module Output enables you to send messages to Azure IoT Edge edgeHub using Node-Red. Node-Red needs to run as a module in Azure IoT Edge for this node to work.</p>
     <p>The output setting will determine which output will be used. This output also needs to be used within the IoT Edge routing.</p>
 </script>
 
@@ -128,7 +127,7 @@
         category: 'Azure IoT',
         color: '#a6bbcf',
         defaults: {
-            client: {value:"",type:"moduleclient",required:true},
+            client: {value:"",type:"edgeclient",required:true},
             method: {value:"", required:true}
         },
         inputs:1,
@@ -145,7 +144,7 @@
 
 <script type="text/x-red" data-template-name="modulemethod">
     <div class="form-row">
-        <label for="node-input-client"><i class="icon-tag"></i> <span>Module Client</span></label>
+        <label for="node-input-client"><i class="icon-tag"></i> <span>IoT Edge Client</span></label>
         <input type="text" id="node-input-client" placeholder="Client">
     </div>
     <div class="form-row">
@@ -155,6 +154,6 @@
 </script>
 
 <script type="text/x-red" data-help-name="modulemethod">
-    <p>Azure IoT Edge Module Method enable you to send methods to Azure IoT Edge module using Node-Red. Node-Red needs to run as a module in Azure IoT Edge for this node to work.</p>
+    <p>Azure IoT Edge Module Method enables you to send methods to Azure IoT Edge module using Node-Red. Node-Red needs to run as a module in Azure IoT Edge for this node to work.</p>
     <p>The method setting will determine what method you can use used.The response defines what the method will send as a return to the IoT Hub.</p>
 </script>

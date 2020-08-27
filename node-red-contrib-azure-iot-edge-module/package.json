@@ -1,7 +1,7 @@
 {
     "name": "node-red-contrib-azure-iot-edge-module",
     "description": "Node-Red nodes for Azure IoT Edge",
-    "version": "0.1.1",
+    "version": "1.0.0",
     "license" : "MIT",
     "author": "Eric van Uum",
     "repository": {
@@ -12,9 +12,9 @@
       "node": ">=0.10.0"
     },
     "dependencies": {
-      "azure-iot-device": "^1.16.0",
-      "azure-iot-device-mqtt": "^1.14.1",
-      "azure-iot-device-amqp": "^1.12.3"
+      "azure-iot-device": "^1.17.1",
+      "azure-iot-device-mqtt": "^1.15.1",
+      "azure-iot-device-amqp": "^1.13.1"
     },
     "keywords": [
       "node-red",
