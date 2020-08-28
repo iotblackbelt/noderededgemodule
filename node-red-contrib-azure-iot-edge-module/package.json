@@ -6,8 +6,12 @@
     "author": "Eric van Uum",
     "repository": {
       "type": "git",
-      "url": "https://github.com/iotblackbelt/noderededgemodule.git"
+      "url": "git+https://github.com/iotblackbelt/noderededgemodule.git"
     },
+    "bugs": {
+      "url": "https://github.com/iotblackbelt/noderededgemodule/issues"
+    },
+    "homepage": "https://github.com/iotblackbelt/noderededgemodule",
     "engines": {
       "node": ">=0.10.0"
     },
