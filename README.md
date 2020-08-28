@@ -122,4 +122,3 @@ The Node-RED module contains a number of custom nodes placed in the group "Azure
 - The module includes the dashboard nodes of Node-RED. The example comes with a pre-configured dashboard example: http://&#x3C;edge-device-ip&#x3E;:1880/ui
 
   ![Dashboard example](images/dashboard.png)
-
