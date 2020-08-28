@@ -2,3 +2,4 @@
 .vscode/
 test/
 debug/
+node_modules/
