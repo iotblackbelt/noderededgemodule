@@ -4,6 +4,7 @@
     "version": "1.0.0",
     "license" : "MIT",
     "author": "Eric van Uum",
+    "publishConfig": { "registry": "https://npm.pkg.github.com/" },
     "repository": {
       "type": "git",
       "url": "git+https://github.com/iotblackbelt/noderededgemodule.git"
