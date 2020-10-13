@@ -30,3 +30,4 @@ RUN npm install node-red-contrib-azure-iot-edge-module
 ```
 > Replace **<node-red installation directory in your container>** by the directory that was used to install Node-RED in the container.
 
+The Dockerfile template in this repository contains examples for different platforms.

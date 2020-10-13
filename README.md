@@ -12,7 +12,7 @@ The module is available as an AMD64, ARM64 and ARM32 module. To run the module, 
 - Select **Set Modules**.
 - In the **Deployment Modules** section of the page, click **Add** then select **IoT Edge Module**.
 - In the **Name** field, enter ```nodered```. 
-- In the **Image URI** field, enter ```iotblackbelt/noderededgemodule:1.0.0-amd64```, ```iotblackbelt/noderededgemodule:1.0.0-arm64v8``` or ```iotblackbelt/noderededgemodule:1.0.0-arm32v7```. 
+- In the **Image URI** field, enter ```iotblackbelt/noderededgemodule:1.0.1-amd64```, ```iotblackbelt/noderededgemodule:1.0.1-arm64v8``` or ```iotblackbelt/noderededgemodule:1.0.1-arm32v7```. 
 - Set the Container Create Options and select **Save**.
     ```json
     {
