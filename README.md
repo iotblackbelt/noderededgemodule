@@ -5,21 +5,21 @@ The Azure IoT Edge Node-RED Module is a module that can be deployed to Azure IoT
 
 ## How to deploy the module
 
-The module is available as an AMD64, ARM64 and ARM32 module. To run the module, deploy an [IoT Edge on Linux](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux) or [Raspberry Pi](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux-arm), and then deploy the respective module (AMD64, ARM64v8 or ARM32V7):
+The module is available as an AMD64, ARM64 and ARM32 module. To run the module, deploy an [IoT Edge on Linux](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux) or [Raspberry Pi](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux-arm), and then deploy the respective module (AMD64, ARM64v8 or ARM32V7). Version 1.0.2 of the Node-Red Edge modules now use the offical Node-red docker containers, version 1.1.3-12.
 
 - In the Azure portal, navigate to your IoT hub.
 - Go to **IoT Edge** and select your IoT Edge device.
 - Select **Set Modules**.
 - In the **Deployment Modules** section of the page, click **Add** then select **IoT Edge Module**.
 - In the **Name** field, enter ```nodered```. 
-- In the **Image URI** field, enter ```iotblackbelt/noderededgemodule:1.0.1-amd64```, ```iotblackbelt/noderededgemodule:1.0.1-arm64v8``` or ```iotblackbelt/noderededgemodule:1.0.1-arm32v7```. 
+- In the **Image URI** field, enter ```iotblackbelt/noderededgemodule:1.0.2-amd64```, ```iotblackbelt/noderededgemodule:1.0.2-arm64v8``` or ```iotblackbelt/noderededgemodule:1.0.2-arm32v7```. 
 - Set the Container Create Options and select **Save**.
     ```json
     {
       "HostConfig": {
         "Privileged": true,
         "Binds":[
-            "/node-red:/node-red"
+            "/node-red:/data"
         ],
         "PortBindings": {
           "1880/tcp": [

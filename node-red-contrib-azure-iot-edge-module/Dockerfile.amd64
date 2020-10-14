@@ -1,21 +1,11 @@
-FROM node:10
+# Use node-red official containers
+FROM nodered/node-red:1.1.3-12-minimal-amd64
 
-WORKDIR /App
-
-# Install Node Red
-RUN npm install -g --unsafe-perm node-red
+WORKDIR /usr/src/node-red
+USER node-red
 
 # Install the dashboard extension
-WORKDIR /usr/local/lib/node_modules/node-red/node_modules/
 RUN npm install node-red-dashboard
 
 # Install Azure IoT Edge Module nodes
 RUN npm install node-red-contrib-azure-iot-edge-module
-
-WORKDIR /App
-
-EXPOSE 1880/tcp
-
-USER node
-
-CMD ["node-red", "--flowFile", "flows.json", "--userDir", "/node-red/"]
