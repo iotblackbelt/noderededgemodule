@@ -36,8 +36,8 @@
               "status": "running",
               "restartPolicy": "always",
               "settings": {
-                "image": "iotblackbelt/noderededgemodule:1.0.0-arm64v8",
-                "createOptions": "{\"HostConfig\": {\"Privileged\": true,\"Binds\":[\"/node-red:/node-red\"],\"PortBindings\": {\"1880/tcp\": [{\"HostPort\": \"1880\"}]}}}"
+                "image": "iotblackbelt/noderededgemodule:1.0.2-arm64v8",
+                "createOptions": "{\"HostConfig\": {\"Privileged\": true,\"Binds\":[\"/node-red:/data\"],\"PortBindings\": {\"1880/tcp\": [{\"HostPort\": \"1880\"}]}}}"
               }
             },
             "tempSensor": {
