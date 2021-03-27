@@ -351,12 +351,18 @@ module.exports = function (RED) {
 
         if (inputName === node.input){
             setStatus(node, statusEnum.received);
-            var message = JSON.parse(msg.getBytes().toString('utf8'));
-            if (message) {
-                node.log('Processed input message:' + inputName)
-                // send to node output
-                node.send({payload: message, topic: "input", input: inputName});
+            const msgStr = msg.getBytes().toString('utf8');
+
+            // Try to parse the message
+            try {
+                var msgParsed = JSON.parse(msgStr);
+                node.send({ payload: msgParsed, topic: "input", input: inputName });
+            } catch (e) {
+                // Could not parse JSON message, most likely it's not a valid JSON object. Sending as-is!
+                node.send({ payload: msgStr, topic: "input", input: inputName });
             }
+          
+            node.log('Processed input message:' + inputName)
             setStatus(node, statusEnum.connected);
         }   
     }
