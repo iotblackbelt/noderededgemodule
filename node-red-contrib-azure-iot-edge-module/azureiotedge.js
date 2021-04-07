@@ -143,7 +143,7 @@ module.exports = function (RED) {
         .catch(function(err){
             node.log("Module Input can't be loaded: " + err);
         });
-       
+
         node.on('close', function(done) {
             setStatus(node, statusEnum.disconnected);
             done();
@@ -165,17 +165,8 @@ module.exports = function (RED) {
             node.log("Module Output created: " + node.output);
             node.on('input', function (msg) {
                 setStatus(node, statusEnum.sent);
-                var messageJSON = null;
-
-                if (typeof (msg.payload) != "string") {
-                    messageJSON = msg.payload;
-                } else {
-                    //Converting string to JSON Object
-                    messageJSON = JSON.parse(msg.payload);
-                }
-
                 var messageOutput = node.output;
-                sendMessageToEdgeHub(client, node, messageJSON, messageOutput);
+                sendMessageToEdgeHub(client, node, msg, messageOutput);
             });
         })
         .catch(function(err){
@@ -349,16 +340,18 @@ module.exports = function (RED) {
             }
         });
 
-        if (inputName === node.input){
+        if (inputName === node.input) {
             setStatus(node, statusEnum.received);
-            var message = JSON.parse(msg.getBytes().toString('utf8'));
+            var message = msg.getBytes().toString('utf8');
+            var messageJSON = "";
             if (message) {
-                node.log('Processed input message:' + inputName)
-                // send to node output
-                node.send({payload: message, topic: "input", input: inputName});
+                messageJSON = JSON.parse(message);
             }
+            node.log('Processed input message:' + inputName);
+            // send to node output
+            node.send({payload: messageJSON, topic: "input", input: inputName, properties: msg.properties});
             setStatus(node, statusEnum.connected);
-        }   
+        }
     }
 
     var setStatus = function (node, status) {
@@ -368,12 +361,25 @@ module.exports = function (RED) {
     var sendMessageToEdgeHub = function (client, node, message, output) {
 
         // Send the message to IoT Edge
-        if (!output)
+        if (!output) 
         {
             output = "output";
         }
-        node.log('Sending Message to Azure IoT Edge: ' + output + '\n   Payload: ' + JSON.stringify(message));
-        var msg = new Message(JSON.stringify(message));
+        var messageJSON = "";
+        if (message.payload) {
+            if (typeof (message.payload) != "string") {
+                messageJSON = JSON.stringify(message.payload);
+            } else {
+                messageJSON = message.payload;
+            }
+        }
+        var logMessage = 'Sending Message to Azure IoT Edge: ' + output + '\n   Payload: ' + messageJSON;
+        var msg = new Message(messageJSON);
+        if (message.properties) {
+            logMessage += '\n   Properties: ' + JSON.stringify(message.properties);
+            msg.properties = message.properties;
+        }
+        node.log(logMessage);
         client.sendOutputEvent(output, msg, function (err, res) {
             if (err) {
                 node.error('Error while trying to send message:' + err.toString());
@@ -409,7 +415,7 @@ module.exports = function (RED) {
     // Registration of the node into Node-RED
     RED.nodes.registerType("moduleoutput", ModuleOutput, {
         defaults: {
-             output: { value: "output1"}
+            output: { value: "output1"}
         }
     });
 
