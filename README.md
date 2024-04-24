@@ -1,3 +1,5 @@
+# ARCHIVED - REPOSITORY IS NOT MAINTAINED
+
 # Azure IoT Edge Node-RED Module
 The Azure IoT Edge Node-RED Module is a module that can be deployed to Azure IoT Edge so you can interact with the IoT Edge platform using Node-RED. This module is provided "as-is", without any guarantee. The module can be found on [Docker Hub](https://hub.docker.com/r/iotblackbelt/noderededgemodule/) and the source code can be found in the *node-red-contrib-azure-iot-edge-module* directory of this repository. If you want to create your own Node-RED module, just follow the steps that can be found in our documentation to create a [Node.js IoT Edge module](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-node-module) and use the Node.js code provided in this repository.
 
